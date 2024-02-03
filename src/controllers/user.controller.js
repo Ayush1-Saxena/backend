@@ -123,8 +123,8 @@ steps for login user
 
   // get login details from frontend
   const { username, email, password } = req.body;
-  // check for username/email
-  if (!username || !email) {
+  // check for username/email. Here !(username || email) --> means username or email any one must be present
+  if (!(username || email)) {
     throw new ApiError(400, "username or email is required");
   }
 
